@@ -1,27 +1,48 @@
 <template>
-
+    <!-- 跳转到video -->
+    <!-- <div class="carousel-card" v-on:click="redirectToVideo(card.id)"> -->
     <div class="carousel-card">
-        <img :src="card.img" width="100%" height="150px" />
-        <div class="carousel-card-title">{{ card.title }}</div>
-        <div class="carousel-card-user"><i class="el-icon-user"></i>{{ card.userName }}</div>
+        <router-link :to="'/video/' + card.id">
+            <img :src="card.img" width="100%" height="150px" />
+        </router-link>
+        <div class="carousel-card-title"><router-link :to="'/video/' + card.id">{{ card.title }}</router-link></div>
+        <div class="carousel-card-user"><i class="el-icon-user"></i><router-link :to="'/video/' + card.id">{{
+            card.userName
+        }}</router-link></div>
+
     </div>
 </template>
 
 <script>
-    export default{
-        name: 'CardItemVue',
-        props: {
-            card: Object
-        }
+export default {
+    name: 'CardItemVue',
+    props: {
+        card: Object
     }
+}
 </script>
 
 <style>
+a {
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 默认字体灰色 */
+    color: #475669;
+}
+
+/* a标签hover后变为蓝色 */
+.carousel-card a:hover {
+    color: #2e0053;
+    /* 延迟1s */
+    transition: all 1s;
+}
+
 .carousel-card {
     width: 30%;
     float: left;
     margin: 0 0 20px 20px;
 }
+
 .carousel-card img {
     border-radius: 10px;
 }

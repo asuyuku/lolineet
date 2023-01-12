@@ -2,11 +2,11 @@
     <div>
         <div class="feed-floor-header">
             <span>
-                <h1><i class="el-icon-star-on"></i>{{ feedFloor.title }}</h1>
+                <h1><i class="el-icon-star-on"></i>{{ feedFloor.name }}</h1>
             </span>
         </div>
         <div class="feed-floor-items">
-            <FeedFloorCardItemVue v-for="card in feedFloor.cards" :card="card" :key="card.id"></FeedFloorCardItemVue>
+            <FeedFloorCardItemVue v-if="feedFloor!=null" v-for="card in feedFloor.videoList" :card="card" :key="card.id"></FeedFloorCardItemVue>
         </div>
     </div>
 </template>
@@ -33,6 +33,8 @@ export default {
     },
     props: {
         feedFloor: Object
+    },mounted: function () {
+        console.log(this.feedFloor)
     }
 
 }
