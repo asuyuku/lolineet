@@ -36,6 +36,10 @@ export default {
     color: #000000;
     opacity: 0.75;
     margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .feed-floor-user {

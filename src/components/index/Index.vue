@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <HeaderVue />
+        <HeaderVue color="black"/>
         <HeaderBannerVue />
         <div id="main">
             <CarouselVue />
@@ -17,6 +17,7 @@ import HeaderBannerVue from './HeaderBanner.vue';
 import CarouselVue from './Carousel.vue';
 import FeedFloorVue from './FeedFloor.vue';
 import { recommend } from '../../api/video';
+
 export default {
     name: 'Index',
     components: {
@@ -44,5 +45,10 @@ body {
 #main {
     padding: 0 var(--layout-padding);
 
+}
+
+.goTop {
+    height: 100vh;
+    overflow-x: hidden;
 }
 </style>
