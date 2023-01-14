@@ -1,6 +1,7 @@
 # lolineet
 
-> A Vue.js project
+> 仿哔哩哔哩前端页面
+配合后端lolineet-backend使用
 
 ## Build Setup
 
