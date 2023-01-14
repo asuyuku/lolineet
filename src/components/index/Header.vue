@@ -1,5 +1,6 @@
 <template>
-    <div id="lolineet-header" :class="color == 'black' ? 'lolineet-header' : 'lolineet-header-white'" v-bind:onScroll="handleScroll">
+    <div id="lolineet-header" :class="color == 'black' ? 'lolineet-header' : 'lolineet-header-white'"
+        v-bind:onScroll="handleScroll">
         <div class="lolineet-header-button">
             <router-link to="/"><i class="el-icon-s-home"></i>首页</router-link>
             <a v-for="title in titles">{{ title.text }}</a>
@@ -12,7 +13,7 @@
         </div>
 
         <div class="lolineet-header-mine">
-            <a>
+            <router-link to="/mine/upload">
                 <el-popover placement="top-start" title="标题" width="200" trigger="hover" ref="userPopover"
                     content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
                 </el-popover>
@@ -30,8 +31,7 @@
                 </el-popover> -->
 
                 <!--  -->
-            </a>
-
+            </router-link>
         </div>
     </div>
 </template>
@@ -48,22 +48,27 @@ export default {
                 { text: '测试3' }
             ],
             input3: '',
-            scrollTop: 0
+            scrollTop: 0,
+            color: 'black'
         }
     },
     props: {
-        color: String
+        isIndex: Boolean
     }, mounted: function () {
-        window.addEventListener('scroll',()=>{
-            if(window.scrollY>20){
+        if(!this.isIndex){
+            this.color = 'white'
+            return;
+        }
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20 && this.isIndex) {
                 this.color = 'white'
-            }else{
+            } else {
                 this.color = 'black'
             }
         })
 
 
-    },methods: {
+    }, methods: {
         handleScroll() {
             this.scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(this.scrollTop)
@@ -93,7 +98,8 @@ export default {
     color: black;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 4px #00000014;
+    border: 1px solid #00000014;
+    box-shadow: 0 3px 4px #00000014;
     z-index: 999;
 }
 
@@ -101,6 +107,7 @@ export default {
     text-align: left;
     width: 28%;
     margin-left: 5%;
+    font-size: 13px;
 }
 
 .lolineet-header-search {
@@ -115,13 +122,14 @@ export default {
 
 .lolineet-header a {
     color: antiquewhite;
-    margin-left: 15px;
+    margin-left: 3%;
     text-align: -webkit-match-parent;
 }
 
 .lolineet-header-white a {
-    color: gray;
-    margin-left: 15px;
+    color: black;
+    margin-left: 16px;
     text-align: -webkit-match-parent;
+    font-family: "Microsoft YaHei";
 }
 </style>

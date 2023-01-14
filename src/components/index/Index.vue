@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <HeaderVue color="black"/>
+        <HeaderVue :isIndex = "true" />
         <HeaderBannerVue />
         <div id="main">
             <CarouselVue />
@@ -40,6 +40,12 @@ export default {
 body {
     --layout-padding: 140px;
     margin: 0, 0, 0, 0;
+}
+a {
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 默认字体灰色 */
+    color: #475669;
 }
 
 #main {

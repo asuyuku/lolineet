@@ -1,7 +1,7 @@
 <template>
     <!--  仿bilibili标头-->
     <div class="video" v-if="resultData != null">
-        <Header color="white"></Header>
+        <Header :isIndex="false"></Header>
         <div class="video-main">
             <div class="video-title">{{ resultData.data.data.name }}</div>
             <video  controls="" playsinline="" width="100%" height="80%">
@@ -12,7 +12,12 @@
 </template>
 
 <style>
-.video {
+
+a {
+    /* 去掉下划线 */
+    text-decoration: none;
+    /* 默认字体灰色 */
+    color: #475669;
 }
 
 .video-title{

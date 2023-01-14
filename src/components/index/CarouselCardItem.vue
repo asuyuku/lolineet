@@ -23,12 +23,6 @@ export default {
 </script>
 
 <style>
-a {
-    /* 去掉下划线 */
-    text-decoration: none;
-    /* 默认字体灰色 */
-    color: #475669;
-}
 
 /* a标签hover后变为蓝色 */
 .carousel-card a:hover {

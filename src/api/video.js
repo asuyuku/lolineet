@@ -14,3 +14,19 @@ export function videoDetail(params={}){
         params,
     })
 }
+
+export function uploadVideo(data){
+    return request({
+        url: '/standard/video/uploadVideo',
+        method: 'post',
+        data
+    })
+}
+
+export function saveVideo(data){
+    return request({
+        url: '/standard/video/saveVideo',
+        method: 'post',
+        data
+    })
+}
